@@ -11,7 +11,11 @@ import SwiftUI
 struct Final_ProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            //APIView()
+            NavigationStack {
+                MapView()
+            }
         }
     }
 }
+
+

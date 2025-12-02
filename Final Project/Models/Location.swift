@@ -16,6 +16,8 @@ struct Location: Codable {
     let rating: String?
     let rating_image_url: String?
     let hours: Hours?
+    let latitude: String?
+    let longitude: String?
 }
 
 struct Hours: Codable {

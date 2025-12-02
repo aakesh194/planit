@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B16DAC72ECF9E2600DF5C35 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0B16DAC62ECF9E2600DF5C35 /* BottomSheet */; };
 		0B73BCC22ECBD4510008AEBF /* SVGView in Frameworks */ = {isa = PBXBuildFile; productRef = 0B73BCC12ECBD4510008AEBF /* SVGView */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B73BCC22ECBD4510008AEBF /* SVGView in Frameworks */,
+				0B16DAC72ECF9E2600DF5C35 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +73,7 @@
 			name = "Final Project";
 			packageProductDependencies = (
 				0B73BCC12ECBD4510008AEBF /* SVGView */,
+				0B16DAC62ECF9E2600DF5C35 /* BottomSheet */,
 			);
 			productName = "Final Project";
 			productReference = 0BF6BEC32EC68B5F001DED9C /* Final Project.app */;
@@ -102,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				0B73BCC02ECBD4510008AEBF /* XCRemoteSwiftPackageReference "SVGView" */,
+				0B16DAC52ECF9E2600DF5C35 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0BF6BEC42EC68B5F001DED9C /* Products */;
@@ -333,6 +337,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0B16DAC52ECF9E2600DF5C35 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		0B73BCC02ECBD4510008AEBF /* XCRemoteSwiftPackageReference "SVGView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/SVGView.git";
@@ -344,6 +356,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0B16DAC62ECF9E2600DF5C35 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B16DAC52ECF9E2600DF5C35 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
 		0B73BCC12ECBD4510008AEBF /* SVGView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0B73BCC02ECBD4510008AEBF /* XCRemoteSwiftPackageReference "SVGView" */;

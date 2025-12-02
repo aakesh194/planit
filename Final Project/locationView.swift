@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SVGView
+import MapKit
 
 func DetailsService(locationID: String) async throws -> Location {
     let url = URL(string: "https://api.content.tripadvisor.com/api/v1/location/\(locationID)/details?key=\(APIKey)")!
@@ -31,10 +32,32 @@ struct detailsView: View {
     let location: String
     @State private var searchResult: Location? = nil
     @State private var imageResult: ImageSearch? = nil
+    @Binding var plannerList: [plannerItem]
+
+
     
     var body: some View {
 
             VStack (alignment: .leading) {
+                Button {
+                    if let result = searchResult,
+                       let latString = result.latitude,
+                       let lonString = result.longitude,
+                       let lat = Double(latString),
+                       let lon = Double(lonString) {
+                        
+                        plannerList.append(
+                            plannerItem(
+                                time: "9am",
+                                event: result,
+                                coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                            )
+                        )
+                    }
+
+                } label: {
+                    Image(systemName: "plus")
+                }
                 ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     if let imageResult = imageResult {
@@ -98,6 +121,7 @@ struct detailsView: View {
                     await getImages()
                 }
             }
+
     }
         
     
@@ -126,5 +150,5 @@ struct detailsView: View {
 }
 
 #Preview {
-    detailsView(location: "460221")
+    //detailsView(location: "460221", plannerList: $plannerList)
 }

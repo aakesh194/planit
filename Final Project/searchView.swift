@@ -23,8 +23,10 @@ func SearchService(searchQuery: String) async throws -> [Location] {
 struct APIView: View {
     @State private var searchQuery = ""
     @State private var searchResult: [Location]? = nil
-    
+    @Binding var plannerList: [plannerItem]
 
+    
+    
     var body: some View {
         VStack {
             NavigationStack {
@@ -38,6 +40,7 @@ struct APIView: View {
                             }
                         }
                         .bold()
+                        .font(.system(size: 20))
                         Spacer()
                         
                     }
@@ -47,9 +50,10 @@ struct APIView: View {
                     Section {
                         if let searchResult = searchResult {
                             ForEach(searchResult, id: \.location_id) { result in
-                                VStack {  
+                                VStack {
                                     NavigationLink {
-                                        detailsView(location: result.location_id ?? "No ID")
+                                        detailsView(location: result.location_id ?? "No ID", plannerList: $plannerList)
+                                        
                                     }
                                     label: {
                                         VStack (alignment: .leading) {
@@ -62,11 +66,12 @@ struct APIView: View {
                             }
                         }
                     }
+                    
                 }
             }
-            
         }
-    }
+    
+}
     
     func getSearches() async {
         do {
@@ -82,5 +87,5 @@ struct APIView: View {
 
 
 #Preview {
-    APIView()
+    //APIView(plannerList: )
 }
